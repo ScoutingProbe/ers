@@ -52,4 +52,4 @@ Structural Requirements: design patterns
 - Singleton
 - Factory
 - Data Access Object
-- Front Controller 
+- Front Controller  

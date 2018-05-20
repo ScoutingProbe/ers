@@ -8,11 +8,31 @@
 		<filter-name>Cors</filter-name>
 		<display-name>Cors</display-name>
 		<description></description>
-		<filter-class>design.Cors</filter-class>
+		<filter-class>filter.Cors</filter-class>
+	</filter>	
+	<filter>
+		<filter-name>Cache</filter-name>
+		<display-name>Cache</display-name>
+		<description></description>
+		<filter-class>filter.Cache</filter-class>
+	</filter>
+	<filter>
+		<filter-name>Session</filter-name>
+		<display-name>Session</display-name>
+		<description></description>
+		<filter-class>filter.Session</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>Cors</filter-name>
 		<url-pattern>*.cors</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Cache</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Session</filter-name>
+		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 	<servlet>
 		<servlet-name>Front</servlet-name>
@@ -66,6 +86,12 @@
 		<description></description>
 		<servlet-class>servlet.JacksonEmployeeReimbursementServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<display-name>LogoutServlet</display-name>
+		<description></description>
+		<servlet-class>servlet.LogoutServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Front</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -101,6 +127,10 @@
 	<servlet-mapping>
 		<servlet-name>JacksonEmployeeReimbursementServlet</servlet-name>
 		<url-pattern>/JacksonEmployeeReimbursementServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

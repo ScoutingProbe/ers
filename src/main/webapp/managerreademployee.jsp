@@ -2,19 +2,22 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="model.Manager" %>
 <% Manager manager = (Manager) request.getSession().getAttribute("manager"); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Manager: employees</title>
+<link rel='stylesheet' type='text/css' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'>
+<link rel='stylesheet' type='text/css' href='css/information.css'>
 </head>
 <body>
-<div class='container'>
-	<h2>Manager view employees</h2>
-	<a href='manager-home.do'>Home</a>
-	<table>
-		<thead>
-			<tr>
+<div id='container' class='container'>
+	<h2><%= manager.getUsername() %> view employees</h2>
+	<a id='button' class='btn btn-primary' href='manager-home.do'>Home</a>
+	<table id='employee' class='table'>
+		<thead class='thead'>
+			<tr scope='col'>
 				<th>id</th>
 				<th>Username</th>
 			</tr>

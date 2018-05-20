@@ -1,10 +1,14 @@
 package servlet;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import serve.IndexServe;
+import org.apache.log4j.Logger;
+
 import serve.EmployeeServe;
+import serve.IndexServe;
 import serve.ManagerServe;
 
 public class Dispatcher {
@@ -43,5 +47,19 @@ public class Dispatcher {
 		default:
 			return "404.jsp";
 		}
+	}
+	
+	private static String logout(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println(request.getSession().getAttribute("employee"));
+		request.getSession().invalidate();
+		System.out.println(request.getSession().getAttribute("employee"));
+		try {
+			response.sendRedirect("index.do");
+		} catch (IOException e) {
+			Logger logger = Logger.getLogger(Dispatcher.class);
+			logger.error(e.getMessage());
+			return "index.do";
+		} 
+		return "index.do";
 	}
 }

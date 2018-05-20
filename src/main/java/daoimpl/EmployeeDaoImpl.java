@@ -126,8 +126,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public boolean authenticateEmployee(String inUsername, String inPassword) {
-		//TODO
-		return true;
+	public String hash(String inUsername, String inPassword) {
+		String sql = "SELECT hash(?,?) AS hash FROM dual";
+		try(Connection c = ConnectionUtil.connect(this.logger);
+				PreparedStatement s = c.prepareStatement(sql);){
+			s.setString(1, inUsername);
+			s.setString(2, inPassword);
+			ResultSet r = s.executeQuery();
+			if(r.next())
+				return r.getString("hash");
+		} catch(SQLException e) {
+			logger.error(e.getSQLState());
+			logger.error(e.getErrorCode());
+			logger.error(e.getMessage());
+		}
+		return "";
 	}
 }

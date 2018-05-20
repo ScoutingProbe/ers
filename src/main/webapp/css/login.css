@@ -1,0 +1,34 @@
+@charset "ISO-8859-1";
+
+body{
+	display:flex;
+	flex-flow: column nowrap;
+	
+	justify-content: center;
+	align-items: center;
+
+}
+
+#container{
+	display:flex;
+	flex-flow: column nowrap;
+	
+	height:400px;
+	
+	justify-content:center;
+	align-items: center;
+
+}
+
+#form{
+	display:flex;
+	flex-flow: column nowrap;
+}
+
+input{
+	margin:10px;
+}
+
+p {
+	padding-left:10px;
+}

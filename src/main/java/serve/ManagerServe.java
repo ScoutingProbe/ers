@@ -22,6 +22,7 @@ public class ManagerServe {
 	}
 	
 	public static String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
 		return "index.do";
 	}
 

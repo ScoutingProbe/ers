@@ -32,23 +32,4 @@ public class ReimbursementService {
 	public static boolean deleteReimbursement(String inUsername) {
 		return dao.deleteReimbursement(inUsername);
 	}
-	
-	public static ReimbursementImage getImage(Reimbursement reimbursement) {
-		int reimbursementid = reimbursement.getReimbursementid();
-		String employee = reimbursement.getEmployee();
-		String manager = reimbursement.getManager();
-		String status = reimbursement.getStatus();
-		InputStream stream = reimbursement.getImage();
-		String category = reimbursement.getCategory();
-		
-		byte[] bytes;
-		try {
-			bytes = IOUtils.toByteArray(stream);
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			bytes = null;
-		}
-		
-		return new ReimbursementImage(reimbursementid, employee, manager, status, bytes, category);
-	}
 }

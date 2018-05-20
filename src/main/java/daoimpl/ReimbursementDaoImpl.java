@@ -67,9 +67,15 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				Blob blob = r.getBlob(5);
 				String category = r.getString(6);
 
-				InputStream image = blob.getBinaryStream();
+				InputStream image = null;
+				if(blob == null) {
+					ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+					image = classloader.getResourceAsStream("noimage.png");
+				} else
+					image = blob.getBinaryStream();
 				
-				return new Reimbursement(reimbursementid, employee, manager, status, image, category);
+				return new Reimbursement(reimbursementid, employee, manager,
+						status, image, category);
 			}
 		} catch(SQLException e) {
 			logger.error(e.getSQLState());

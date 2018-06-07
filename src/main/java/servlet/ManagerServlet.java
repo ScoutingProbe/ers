@@ -1,19 +1,14 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Employee;
 import model.Manager;
-import model.Reimbursement;
-import service.EmployeeService;
 import service.ManagerService;
-import service.ReimbursementService;
 
 public class ManagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

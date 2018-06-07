@@ -3,12 +3,10 @@ package service;
 import java.io.InputStream;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
 import daoimpl.ReimbursementDaoImpl;
 import model.Reimbursement;
-import model.ReimbursementImage;
 
 public class ReimbursementService {
 	private static Logger logger = Logger.getLogger(ReimbursementService.class);

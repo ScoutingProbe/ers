@@ -1,11 +1,8 @@
 package design;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
-
 import org.apache.log4j.Logger;
 
 public class ConnectionUtil {
@@ -18,13 +15,11 @@ public class ConnectionUtil {
 		return logger;
 	}
 	public static Connection connect(Logger logger) {
-		Properties props = new Properties();
-		try (InputStream in = ConnectionUtil.class.getClassLoader().getResourceAsStream("db.properties")) {
-			props.load(in);
+		try{
 			Class.forName("oracle.jdbc.OracleDriver");
-			String url = props.getProperty("jdbc.url");
-			String username = props.getProperty("jdbc.username");
-			String password = props.getProperty("jdbc.password");
+			String url = System.getenv("ERS_URL");
+			String username = System.getenv("ERS_USERNAME");
+			String password = System.getenv("ERS_PASSWORD");
 			return DriverManager.getConnection(url, username, password);
 		} catch (SQLException e) {
 			logger.error(e.getErrorCode());

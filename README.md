@@ -59,6 +59,6 @@ Instructions
 ==============================================================================================
 http://ec2-52-87-183-18.compute-1.amazonaws.com:8090/ers/
 
-Employee:andrew:password
-Employee:cameron:password
-Manager:william:password
+- Employee:andrew:password
+- Employee:cameron:password
+- Manager:william:password

@@ -46,6 +46,7 @@ Environment
 - Oracle 12c Database
 - SQL Developer
 - Tomcat 
+- Jenkins
 	
 Structural Requirements: design patterns
 ==============================================================================================
@@ -53,3 +54,11 @@ Structural Requirements: design patterns
 - Factory
 - Data Access Object
 - Front Controller   
+
+Instructions
+==============================================================================================
+http://ec2-52-87-183-18.compute-1.amazonaws.com:8090/ers/
+
+Employee:andrew:password
+Employee:cameron:password
+Manager:william:password

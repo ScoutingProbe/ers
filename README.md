@@ -62,3 +62,6 @@ http://ec2-52-87-183-18.compute-1.amazonaws.com:8090/ers/
 - Employee:andrew:password
 - Employee:cameron:password
 - Manager:william:password
+
+Currently getting NullPointerException because database credentials stored on ec2 environment variables are not
+reading correctly.  Will fix after 6/15/2018 -andrew

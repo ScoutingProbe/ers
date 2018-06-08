@@ -17,9 +17,9 @@ public class ConnectionUtil {
 	public static Connection connect(Logger logger) {
 		try{
 			Class.forName("oracle.jdbc.OracleDriver");
-			String url = System.getenv("ERS_URL");
-			String username = System.getenv("ERS_USERNAME");
-			String password = System.getenv("ERS_PASSWORD");
+			String url = System.getProperty("ERS_URL");
+			String username = System.getProperty("ERS_USERNAME");
+			String password = System.getProperty("ERS_PASSWORD");
 			return DriverManager.getConnection(url, username, password);
 		} catch (SQLException e) {
 			logger.error(e.getErrorCode());
